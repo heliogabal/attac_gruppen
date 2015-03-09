@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the attac-Gruppen feature.
+ */
+
+include_once 'attac_gruppen.features.inc';
