@@ -10,6 +10,181 @@
 function attac_gruppen_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-ag_seite-body'
+  $field_instances['node-ag_seite-body'] = array(
+    'bundle' => 'ag_seite',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'type' => 'text_summary_or_trimmed',
+        'weight' => 1,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'body',
+    'label' => 'Body',
+    'required' => 0,
+    'settings' => array(
+      'context' => 'debug',
+      'context_default' => 'sdl_editor_representation',
+      'display_summary' => 1,
+      'dnd_enabled' => 1,
+      'mee_enabled' => 1,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-ag_seite-field_bilder'
+  $field_instances['node-ag_seite-field_bilder'] = array(
+    'bundle' => 'ag_seite',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Bilder, die in diesem Feld hinzugefügt werden, erscheinen rechts neben dem Text, und lassen sich durch Anklicken in einem eigenen Fenster vergrößern.',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'atom_reference',
+        'settings' => array(
+          'link' => 0,
+          'override' => 0,
+        ),
+        'type' => 'bild_ag_seite',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_bilder',
+    'label' => 'Bilder',
+    'required' => 0,
+    'settings' => array(
+      'allow_override' => 0,
+      'referencable_types' => array(
+        'audio' => 0,
+        'file' => 0,
+        'image' => 'image',
+        'text' => 0,
+        'twitter' => 0,
+        'video' => 0,
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'atom_reference',
+      'settings' => array(
+        'context' => 'sdl_editor_representation',
+      ),
+      'type' => 'atom_reference_textfield',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'node-ag_seite-og_group_ref'
+  $field_instances['node-ag_seite-og_group_ref'] = array(
+    'bundle' => 'ag_seite',
+    'default_value' => NULL,
+    'default_value_function' => 'entityreference_prepopulate_field_default_value',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'og_group_ref',
+    'label' => 'AG',
+    'required' => 1,
+    'settings' => array(
+      'behaviors' => array(
+        'og_widget' => array(
+          'access_override' => 0,
+          'admin' => array(
+            'widget_type' => 'entityreference_autocomplete',
+          ),
+          'default' => array(
+            'widget_type' => 'options_select',
+          ),
+          'status' => TRUE,
+        ),
+        'prepopulate' => array(
+          'action' => 'disable',
+          'action_on_edit' => 1,
+          'fallback' => 'none',
+          'providers' => array(
+            'og_context' => 1,
+            'url' => 1,
+          ),
+          'skip_perm' => 0,
+          'status' => 1,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'view modes' => array(
+      'full' => array(
+        'custom settings' => FALSE,
+        'label' => 'Vollständig',
+        'type' => 'og_list_default',
+      ),
+      'teaser' => array(
+        'custom settings' => FALSE,
+        'label' => 'Anrisstext',
+        'type' => 'og_list_default',
+      ),
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'og',
+      'settings' => array(),
+      'type' => 'og_complex',
+      'weight' => 1,
+    ),
+  );
+
   // Exported field_instance: 'node-artikel-body'
   $field_instances['node-artikel-body'] = array(
     'bundle' => 'artikel',
@@ -49,7 +224,11 @@ function attac_gruppen_field_default_field_instances() {
     'label' => 'Body',
     'required' => 0,
     'settings' => array(
+      'context' => 'debug',
+      'context_default' => 'sdl_editor_representation',
       'display_summary' => 1,
+      'dnd_enabled' => 1,
+      'mee_enabled' => 1,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -253,16 +432,22 @@ function attac_gruppen_field_default_field_instances() {
         'weight' => 1,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'body',
     'label' => 'Body',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
-      'display_summary' => TRUE,
+      'context' => 'debug',
+      'context_default' => 'sdl_editor_representation',
+      'display_summary' => 1,
+      'dnd_enabled' => 1,
+      'mee_enabled' => 1,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
@@ -440,16 +625,22 @@ function attac_gruppen_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'body',
     'label' => 'Body',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
-      'display_summary' => TRUE,
+      'context' => 'debug',
+      'context_default' => 'sdl_editor_representation',
+      'display_summary' => 1,
+      'dnd_enabled' => 1,
+      'mee_enabled' => 1,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
@@ -460,103 +651,17 @@ function attac_gruppen_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_inhalt_ag'
-  $field_instances['node-page-field_inhalt_ag'] = array(
-    'bundle' => 'page',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 10,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_inhalt_ag',
-    'label' => 'AG',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 4,
-    ),
-    'workbench_access_field' => 1,
-  );
-
-  // Exported field_instance: 'node-page-field_ort'
-  $field_instances['node-page-field_ort'] = array(
-    'bundle' => 'page',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'entityreference',
-        'settings' => array(
-          'links' => TRUE,
-          'view_mode' => 'default',
-        ),
-        'type' => 'entityreference_entity_view',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_ort',
-    'label' => 'Ort',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'references_dialog_add' => 1,
-        'references_dialog_edit' => 1,
-        'references_dialog_search' => 1,
-        'references_dialog_search_view' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 5,
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('AG');
+  t('Bilder');
+  t('Bilder, die in diesem Feld hinzugefügt werden, erscheinen rechts neben dem Text, und lassen sich durch Anklicken in einem eigenen Fenster vergrößern.');
   t('Body');
   t('Determine if this is an OG group.');
   t('Group content visibility');
   t('Group visibility');
   t('Groups audience');
   t('Gruppe');
-  t('Ort');
 
   return $field_instances;
 }

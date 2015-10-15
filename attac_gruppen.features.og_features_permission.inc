@@ -31,6 +31,11 @@ function attac_gruppen_og_features_default_permissions() {
     ),
   );
 
+  // Exported og permission: 'node:gruppe:create ag_seite content'
+  $permissions['node:gruppe:create ag_seite content'] = array(
+    'roles' => array(),
+  );
+
   // Exported og permission: 'node:gruppe:create artikel content'
   $permissions['node:gruppe:create artikel content'] = array(
     'roles' => array(
@@ -39,11 +44,21 @@ function attac_gruppen_og_features_default_permissions() {
     ),
   );
 
+  // Exported og permission: 'node:gruppe:delete any ag_seite content'
+  $permissions['node:gruppe:delete any ag_seite content'] = array(
+    'roles' => array(),
+  );
+
   // Exported og permission: 'node:gruppe:delete any artikel content'
   $permissions['node:gruppe:delete any artikel content'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
     ),
+  );
+
+  // Exported og permission: 'node:gruppe:delete own ag_seite content'
+  $permissions['node:gruppe:delete own ag_seite content'] = array(
+    'roles' => array(),
   );
 
   // Exported og permission: 'node:gruppe:delete own artikel content'
@@ -77,7 +92,9 @@ function attac_gruppen_og_features_default_permissions() {
 
   // Exported og permission: 'node:gruppe:subscribe'
   $permissions['node:gruppe:subscribe'] = array(
-    'roles' => array(),
+    'roles' => array(
+      'non-member' => 'non-member',
+    ),
   );
 
   // Exported og permission: 'node:gruppe:subscribe without approval'
@@ -92,6 +109,11 @@ function attac_gruppen_og_features_default_permissions() {
     ),
   );
 
+  // Exported og permission: 'node:gruppe:update any ag_seite content'
+  $permissions['node:gruppe:update any ag_seite content'] = array(
+    'roles' => array(),
+  );
+
   // Exported og permission: 'node:gruppe:update any artikel content'
   $permissions['node:gruppe:update any artikel content'] = array(
     'roles' => array(
@@ -104,6 +126,11 @@ function attac_gruppen_og_features_default_permissions() {
     'roles' => array(
       'administrator member' => 'administrator member',
     ),
+  );
+
+  // Exported og permission: 'node:gruppe:update own ag_seite content'
+  $permissions['node:gruppe:update own ag_seite content'] = array(
+    'roles' => array(),
   );
 
   // Exported og permission: 'node:gruppe:update own artikel content'

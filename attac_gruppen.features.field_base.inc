@@ -10,6 +10,25 @@
 function attac_gruppen_field_default_field_bases() {
   $field_bases = array();
 
+  // Exported field_base: 'field_bilder'
+  $field_bases['field_bilder'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_bilder',
+    'indexes' => array(
+      'sid' => array(
+        0 => 'sid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'atom_reference',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'atom_reference',
+  );
+
   // Exported field_base: 'field_inhalt_ag'
   $field_bases['field_inhalt_ag'] = array(
     'active' => 1,
@@ -17,14 +36,6 @@ function attac_gruppen_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_inhalt_ag',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -44,49 +55,6 @@ function attac_gruppen_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_ort'
-  $field_bases['field_ort'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_ort',
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
-    'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'entityreference',
-    'settings' => array(
-      'handler' => 'base',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'ort' => 'ort',
-        ),
-      ),
-      'target_type' => 'node',
-    ),
-    'translatable' => 0,
-    'type' => 'entityreference',
-  );
-
   // Exported field_base: 'group_access'
   $field_bases['group_access'] = array(
     'active' => 1,
@@ -94,7 +62,6 @@ function attac_gruppen_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'group_access',
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -121,7 +88,6 @@ function attac_gruppen_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'group_content_access',
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -149,14 +115,6 @@ function attac_gruppen_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'og_group_ref',
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -171,8 +129,14 @@ function attac_gruppen_field_default_field_bases() {
           'og_behavior' => array(
             'status' => TRUE,
           ),
+          'views-select-list' => array(
+            'status' => 0,
+          ),
         ),
         'membership_type' => 'og_membership_type_default',
+        'sort' => array(
+          'type' => 'none',
+        ),
         'target_bundles' => array(),
       ),
       'handler_submit' => 'Change handler',

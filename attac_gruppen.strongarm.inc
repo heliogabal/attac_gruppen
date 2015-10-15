@@ -13,6 +13,63 @@ function attac_gruppen_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_node__ag_seite';
+  $strongarm->value = array(
+    'view_modes' => array(
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'ical' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'ag_artikel_startseite' => array(
+        'custom_settings' => FALSE,
+      ),
+      'block' => array(
+        'custom_settings' => FALSE,
+      ),
+      'kalender_popup' => array(
+        'custom_settings' => FALSE,
+      ),
+      'plenum_startseite' => array(
+        'custom_settings' => FALSE,
+      ),
+      'revision' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
+    'extra_fields' => array(
+      'form' => array(
+        'title' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '3',
+        ),
+        'redirect' => array(
+          'weight' => '2',
+        ),
+      ),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_node__ag_seite'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__artikel';
   $strongarm->value = array(
     'view_modes' => array(
@@ -191,16 +248,23 @@ function attac_gruppen_strongarm() {
           'weight' => '1',
         ),
         'path' => array(
-          'weight' => '3',
+          'weight' => '4',
         ),
         'redirect' => array(
-          'weight' => '2',
+          'weight' => '3',
         ),
       ),
       'display' => array(),
     ),
   );
   $export['field_bundle_settings_node__page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_ag_seite';
+  $strongarm->value = '0';
+  $export['language_content_type_ag_seite'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -222,6 +286,15 @@ function attac_gruppen_strongarm() {
   $strongarm->name = 'language_content_type_page';
   $strongarm->value = '0';
   $export['language_content_type_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_ag_seite';
+  $strongarm->value = array(
+    0 => 'og-menu-single',
+  );
+  $export['menu_options_ag_seite'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -254,6 +327,13 @@ function attac_gruppen_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'menu_parent_ag_seite';
+  $strongarm->value = 'og-menu-single:0';
+  $export['menu_parent_ag_seite'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_parent_artikel';
   $strongarm->value = 'og-menu-single:0';
   $export['menu_parent_artikel'] = $strongarm;
@@ -271,6 +351,15 @@ function attac_gruppen_strongarm() {
   $strongarm->name = 'menu_parent_page';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_ag_seite';
+  $strongarm->value = array(
+    0 => 'status',
+  );
+  $export['node_options_ag_seite'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -296,10 +385,17 @@ function attac_gruppen_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_page';
   $strongarm->value = array(
-    0 => 'moderation',
+    0 => 'status',
     1 => 'revision',
   );
   $export['node_options_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_preview_ag_seite';
+  $strongarm->value = '0';
+  $export['node_preview_ag_seite'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -321,6 +417,13 @@ function attac_gruppen_strongarm() {
   $strongarm->name = 'node_preview_page';
   $strongarm->value = '0';
   $export['node_preview_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_submitted_ag_seite';
+  $strongarm->value = 0;
+  $export['node_submitted_ag_seite'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

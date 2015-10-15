@@ -8,6 +8,9 @@
  * Implements hook_ctools_plugin_api().
  */
 function attac_gruppen_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "ds" && $api == "ds") {
+    return array("version" => "1");
+  }
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
@@ -28,6 +31,14 @@ function attac_gruppen_views_api($module = NULL, $api = NULL) {
  */
 function attac_gruppen_node_info() {
   $items = array(
+    'ag_seite' => array(
+      'name' => t('AG-Seite'),
+      'base' => 'node_content',
+      'description' => t('AG-Seiten können als Unterseiten einer AG und dem AG-Menu hinzugefügt werden. Sie eignen sich für statischen Inhalt, der sich eher selten ändert. '),
+      'has_title' => '1',
+      'title_label' => t('Titel'),
+      'help' => '',
+    ),
     'artikel' => array(
       'name' => t('Artikel'),
       'base' => 'node_content',
