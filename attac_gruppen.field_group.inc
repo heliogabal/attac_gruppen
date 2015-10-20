@@ -107,7 +107,7 @@ function attac_gruppen_field_group_info() {
     'children' => array(
       0 => 'og_group_ref',
       1 => 'group_content_access',
-      2 => 'field_inhalt_ag',
+      2 => 'field_themen',
       3 => 'flag',
     ),
     'format_type' => 'tab',

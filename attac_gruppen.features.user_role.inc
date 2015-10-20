@@ -10,6 +10,12 @@
 function attac_gruppen_user_default_roles() {
   $roles = array();
 
+  // Exported role: ag.
+  $roles['ag'] = array(
+    'name' => 'ag',
+    'weight' => 8,
+  );
+
   // Exported role: editor.
   $roles['editor'] = array(
     'name' => 'editor',

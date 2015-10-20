@@ -33,7 +33,9 @@ function attac_gruppen_og_features_default_permissions() {
 
   // Exported og permission: 'node:gruppe:create ag_seite content'
   $permissions['node:gruppe:create ag_seite content'] = array(
-    'roles' => array(),
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
   );
 
   // Exported og permission: 'node:gruppe:create artikel content'
@@ -44,9 +46,18 @@ function attac_gruppen_og_features_default_permissions() {
     ),
   );
 
+  // Exported og permission: 'node:gruppe:create protokoll content'
+  $permissions['node:gruppe:create protokoll content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
   // Exported og permission: 'node:gruppe:delete any ag_seite content'
   $permissions['node:gruppe:delete any ag_seite content'] = array(
-    'roles' => array(),
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
   );
 
   // Exported og permission: 'node:gruppe:delete any artikel content'
@@ -56,9 +67,18 @@ function attac_gruppen_og_features_default_permissions() {
     ),
   );
 
+  // Exported og permission: 'node:gruppe:delete any protokoll content'
+  $permissions['node:gruppe:delete any protokoll content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
   // Exported og permission: 'node:gruppe:delete own ag_seite content'
   $permissions['node:gruppe:delete own ag_seite content'] = array(
-    'roles' => array(),
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
   );
 
   // Exported og permission: 'node:gruppe:delete own artikel content'
@@ -69,8 +89,22 @@ function attac_gruppen_og_features_default_permissions() {
     ),
   );
 
+  // Exported og permission: 'node:gruppe:delete own protokoll content'
+  $permissions['node:gruppe:delete own protokoll content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
   // Exported og permission: 'node:gruppe:manage members'
   $permissions['node:gruppe:manage members'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
+  // Exported og permission: 'node:gruppe:manage menu'
+  $permissions['node:gruppe:manage menu'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
     ),
@@ -111,11 +145,20 @@ function attac_gruppen_og_features_default_permissions() {
 
   // Exported og permission: 'node:gruppe:update any ag_seite content'
   $permissions['node:gruppe:update any ag_seite content'] = array(
-    'roles' => array(),
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
   );
 
   // Exported og permission: 'node:gruppe:update any artikel content'
   $permissions['node:gruppe:update any artikel content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
+  // Exported og permission: 'node:gruppe:update any protokoll content'
+  $permissions['node:gruppe:update any protokoll content'] = array(
     'roles' => array(
       'administrator member' => 'administrator member',
     ),
@@ -130,7 +173,9 @@ function attac_gruppen_og_features_default_permissions() {
 
   // Exported og permission: 'node:gruppe:update own ag_seite content'
   $permissions['node:gruppe:update own ag_seite content'] = array(
-    'roles' => array(),
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
   );
 
   // Exported og permission: 'node:gruppe:update own artikel content'
@@ -138,6 +183,13 @@ function attac_gruppen_og_features_default_permissions() {
     'roles' => array(
       'administrator member' => 'administrator member',
       'member' => 'member',
+    ),
+  );
+
+  // Exported og permission: 'node:gruppe:update own protokoll content'
+  $permissions['node:gruppe:update own protokoll content'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
     ),
   );
 
