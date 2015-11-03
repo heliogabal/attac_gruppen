@@ -27,9 +27,9 @@ function attac_gruppen_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'create protokoll content';
   $handler->display->display_options['cache']['type'] = 'time';
-  $handler->display->display_options['cache']['results_lifespan'] = '60';
+  $handler->display->display_options['cache']['results_lifespan'] = '-1';
   $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
-  $handler->display->display_options['cache']['output_lifespan'] = '60';
+  $handler->display->display_options['cache']['output_lifespan'] = '-1';
   $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -71,7 +71,7 @@ function attac_gruppen_views_default_views() {
   $handler->display->display_options['empty']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['empty']['area_text_custom']['label'] = 'Protokoll erstellen';
   $handler->display->display_options['empty']['area_text_custom']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area_text_custom']['content'] = '<a href ="/node/add/protokoll?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-pencil-square-o"></i>
+  $handler->display->display_options['empty']['area_text_custom']['content'] = '<a href ="/node/add/protokoll?og_group_ref=!1&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-pencil-square-o"></i>
 Protokoll erstellen</a>';
   /* Relationship: OG membership: Group Node from OG membership */
   $handler->display->display_options['relationships']['og_membership_related_node_group']['id'] = 'og_membership_related_node_group';
@@ -150,7 +150,6 @@ Protokoll erstellen</a>';
   $handler->display->display_options['arguments']['gid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['gid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['gid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['gid']['break_phrase'] = TRUE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -173,7 +172,7 @@ Protokoll erstellen</a>';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['label'] = 'News erstellen';
-  $handler->display->display_options['footer']['area']['content'] = '<a href ="/node/add/news?og_group_ref=!1?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-newspaper-o"></i> News erstellen</a>';
+  $handler->display->display_options['footer']['area']['content'] = '<a href ="/node/add/news?og_group_ref=!1&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-newspaper-o"></i> News erstellen</a>';
   $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
   $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
@@ -184,7 +183,7 @@ Protokoll erstellen</a>';
   $handler->display->display_options['empty']['area_text_custom']['label'] = 'News erstellen';
   $handler->display->display_options['empty']['area_text_custom']['empty'] = TRUE;
   $handler->display->display_options['empty']['area_text_custom']['content'] = '<p>Hier werden die letzten News der AG gezeigt, die automatisch in der rechten Seitenspalte der AG-Seite auftauchen. Zusätzlich können News an die globale Startseite und an Facebook geschickt werden, indem das entsprechende Flag aktiviert wird.</p><p>Probier es aus und erstelle deine erste News!</p>
-<a href ="/node/add/news?og_ref=[og_group_ref]&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-newspaper-o"></i>
+<a href ="/node/add/news?og_group_ref=!1&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-newspaper-o"></i>
 News erstellen</a>';
   $handler->display->display_options['empty']['area_text_custom']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
@@ -192,6 +191,22 @@ News erstellen</a>';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['id'] = 'og_membership_related_node_group';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['table'] = 'og_membership';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['field'] = 'og_membership_related_node_group';
+  /* Relationship: Flags: frontpage_artikel */
+  $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel']['label'] = 'Startseitenartikel';
+  $handler->display->display_options['relationships']['flag_content_rel']['required'] = 0;
+  $handler->display->display_options['relationships']['flag_content_rel']['flag'] = 'frontpage_artikel';
+  $handler->display->display_options['relationships']['flag_content_rel']['user_scope'] = 'any';
+  /* Relationship: Flags: facebook_artikel */
+  $handler->display->display_options['relationships']['flag_content_rel_1']['id'] = 'flag_content_rel_1';
+  $handler->display->display_options['relationships']['flag_content_rel_1']['table'] = 'node';
+  $handler->display->display_options['relationships']['flag_content_rel_1']['field'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel_1']['label'] = 'Facebook';
+  $handler->display->display_options['relationships']['flag_content_rel_1']['required'] = 0;
+  $handler->display->display_options['relationships']['flag_content_rel_1']['flag'] = 'facebook_artikel';
+  $handler->display->display_options['relationships']['flag_content_rel_1']['user_scope'] = 'any';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -204,12 +219,14 @@ News erstellen</a>';
   $handler->display->display_options['fields']['field_termin_wann']['id'] = 'field_termin_wann';
   $handler->display->display_options['fields']['field_termin_wann']['table'] = 'field_data_field_termin_wann';
   $handler->display->display_options['fields']['field_termin_wann']['field'] = 'field_termin_wann';
+  $handler->display->display_options['fields']['field_termin_wann']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_termin_wann']['settings'] = array(
     'format_type' => 'short',
     'fromto' => 'value',
     'multiple_number' => '1',
     'multiple_from' => '',
     'multiple_to' => '',
+    'show_remaining_days' => 0,
     'show_repeat_rule' => 'hide',
   );
   $handler->display->display_options['fields']['field_termin_wann']['delta_offset'] = '0';
@@ -217,11 +234,13 @@ News erstellen</a>';
   $handler->display->display_options['fields']['field_termin_was']['id'] = 'field_termin_was';
   $handler->display->display_options['fields']['field_termin_was']['table'] = 'field_data_field_termin_was';
   $handler->display->display_options['fields']['field_termin_was']['field'] = 'field_termin_was';
+  $handler->display->display_options['fields']['field_termin_was']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_termin_was']['type'] = 'taxonomy_term_reference_plain';
   /* Field: Content: Wo */
   $handler->display->display_options['fields']['field_termin_wo']['id'] = 'field_termin_wo';
   $handler->display->display_options['fields']['field_termin_wo']['table'] = 'field_data_field_termin_wo';
   $handler->display->display_options['fields']['field_termin_wo']['field'] = 'field_termin_wo';
+  $handler->display->display_options['fields']['field_termin_wo']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_termin_wo']['settings'] = array(
     'link' => 0,
   );
@@ -233,6 +252,22 @@ News erstellen</a>';
     'link' => 0,
   );
   $handler->display->display_options['fields']['og_group_ref']['delta_offset'] = '0';
+  /* Field: Flags: Flagged */
+  $handler->display->display_options['fields']['flagged']['id'] = 'flagged';
+  $handler->display->display_options['fields']['flagged']['table'] = 'flagging';
+  $handler->display->display_options['fields']['flagged']['field'] = 'flagged';
+  $handler->display->display_options['fields']['flagged']['relationship'] = 'flag_content_rel';
+  $handler->display->display_options['fields']['flagged']['label'] = 'Startseite';
+  $handler->display->display_options['fields']['flagged']['type'] = 'unicode-yes-no';
+  $handler->display->display_options['fields']['flagged']['not'] = 0;
+  /* Field: Flags: Flagged */
+  $handler->display->display_options['fields']['flagged_1']['id'] = 'flagged_1';
+  $handler->display->display_options['fields']['flagged_1']['table'] = 'flagging';
+  $handler->display->display_options['fields']['flagged_1']['field'] = 'flagged';
+  $handler->display->display_options['fields']['flagged_1']['relationship'] = 'flag_content_rel_1';
+  $handler->display->display_options['fields']['flagged_1']['label'] = 'Facebook';
+  $handler->display->display_options['fields']['flagged_1']['type'] = 'unicode-yes-no';
+  $handler->display->display_options['fields']['flagged_1']['not'] = 0;
   /* Field: Scheduler: Publish on */
   $handler->display->display_options['fields']['publish_on']['id'] = 'publish_on';
   $handler->display->display_options['fields']['publish_on']['table'] = 'scheduler';
@@ -259,17 +294,6 @@ News erstellen</a>';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: OG membership: Group ID */
-  $handler->display->display_options['arguments']['gid']['id'] = 'gid';
-  $handler->display->display_options['arguments']['gid']['table'] = 'og_membership';
-  $handler->display->display_options['arguments']['gid']['field'] = 'gid';
-  $handler->display->display_options['arguments']['gid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['gid']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['gid']['default_argument_type'] = 'og_context';
-  $handler->display->display_options['arguments']['gid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['gid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['gid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -310,8 +334,9 @@ News erstellen</a>';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['label'] = 'Termin erstellen';
-  $handler->display->display_options['footer']['area']['content'] = '<a href ="/node/add/termin?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-calendar"></i> Termin erstellen</a>';
+  $handler->display->display_options['footer']['area']['content'] = '<a href ="/node/add/event-calendar?og_group_ref=!1&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-calendar"></i> Termin erstellen</a>';
   $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Unfiltered text */
   $handler->display->display_options['empty']['area_text_custom']['id'] = 'area_text_custom';
@@ -319,8 +344,69 @@ News erstellen</a>';
   $handler->display->display_options['empty']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['empty']['area_text_custom']['label'] = 'Termin erstellen';
   $handler->display->display_options['empty']['area_text_custom']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area_text_custom']['content'] = '<a href ="/node/add/termin?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-calendar"></i>
+  $handler->display->display_options['empty']['area_text_custom']['content'] = '<a href ="/node/add/event-calendar?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-calendar"></i>
 Termin erstellen</a>';
+  $handler->display->display_options['empty']['area_text_custom']['tokenize'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Wann */
+  $handler->display->display_options['fields']['field_termin_wann']['id'] = 'field_termin_wann';
+  $handler->display->display_options['fields']['field_termin_wann']['table'] = 'field_data_field_termin_wann';
+  $handler->display->display_options['fields']['field_termin_wann']['field'] = 'field_termin_wann';
+  $handler->display->display_options['fields']['field_termin_wann']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'value',
+    'multiple_number' => '1',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_repeat_rule' => 'hide',
+  );
+  $handler->display->display_options['fields']['field_termin_wann']['delta_offset'] = '0';
+  /* Field: Content: Was */
+  $handler->display->display_options['fields']['field_termin_was']['id'] = 'field_termin_was';
+  $handler->display->display_options['fields']['field_termin_was']['table'] = 'field_data_field_termin_was';
+  $handler->display->display_options['fields']['field_termin_was']['field'] = 'field_termin_was';
+  $handler->display->display_options['fields']['field_termin_was']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Wo */
+  $handler->display->display_options['fields']['field_termin_wo']['id'] = 'field_termin_wo';
+  $handler->display->display_options['fields']['field_termin_wo']['table'] = 'field_data_field_termin_wo';
+  $handler->display->display_options['fields']['field_termin_wo']['field'] = 'field_termin_wo';
+  $handler->display->display_options['fields']['field_termin_wo']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_termin_wo']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Scheduler: Publish on */
+  $handler->display->display_options['fields']['publish_on']['id'] = 'publish_on';
+  $handler->display->display_options['fields']['publish_on']['table'] = 'scheduler';
+  $handler->display->display_options['fields']['publish_on']['field'] = 'publish_on';
+  $handler->display->display_options['fields']['publish_on']['label'] = 'ab';
+  $handler->display->display_options['fields']['publish_on']['date_format'] = 'short';
+  $handler->display->display_options['fields']['publish_on']['second_date_format'] = 'long';
+  /* Field: Scheduler: Unpublish on */
+  $handler->display->display_options['fields']['unpublish_on']['id'] = 'unpublish_on';
+  $handler->display->display_options['fields']['unpublish_on']['table'] = 'scheduler';
+  $handler->display->display_options['fields']['unpublish_on']['field'] = 'unpublish_on';
+  $handler->display->display_options['fields']['unpublish_on']['label'] = 'bis';
+  $handler->display->display_options['fields']['unpublish_on']['date_format'] = 'short';
+  $handler->display->display_options['fields']['unpublish_on']['second_date_format'] = 'long';
+  /* Field: Content: Delete link */
+  $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['label'] = '';
+  $handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -361,6 +447,7 @@ Termin erstellen</a>';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['label'] = 'Seite erstellen';
+  $handler->display->display_options['footer']['area']['empty'] = TRUE;
   $handler->display->display_options['footer']['area']['content'] = '<a href ="/node/add/page?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-file-text-o"></i> Seite erstellen</a>';
   $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
   $handler->display->display_options['defaults']['empty'] = FALSE;
@@ -435,9 +522,24 @@ Seite erstellen</a>';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['label'] = 'Protokoll erstellen';
-  $handler->display->display_options['footer']['area']['content'] = '<a href ="/node/add/protokoll?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-pencil-square-o"></i> Protokoll erstellen</a>';
+  $handler->display->display_options['footer']['area']['content'] = '<a href ="/node/add/protokoll?og_group_ref=!1&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-pencil-square-o"></i> Protokoll erstellen</a>';
   $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Unfiltered text */
+  $handler->display->display_options['empty']['area_text_custom']['id'] = 'area_text_custom';
+  $handler->display->display_options['empty']['area_text_custom']['table'] = 'views';
+  $handler->display->display_options['empty']['area_text_custom']['field'] = 'area_text_custom';
+  $handler->display->display_options['empty']['area_text_custom']['label'] = 'Protokoll erstellen';
+  $handler->display->display_options['empty']['area_text_custom']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area_text_custom']['content'] = '<a href ="/node/add/protokoll?og_group_ref=!1&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-pencil-square-o"></i>
+Protokoll erstellen</a>';
+  $handler->display->display_options['empty']['area_text_custom']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: OG membership: Group Node from OG membership */
+  $handler->display->display_options['relationships']['og_membership_related_node_group']['id'] = 'og_membership_related_node_group';
+  $handler->display->display_options['relationships']['og_membership_related_node_group']['table'] = 'og_membership';
+  $handler->display->display_options['relationships']['og_membership_related_node_group']['field'] = 'og_membership_related_node_group';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -481,6 +583,16 @@ Seite erstellen</a>';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: OG membership: Group ID */
+  $handler->display->display_options['arguments']['gid']['id'] = 'gid';
+  $handler->display->display_options['arguments']['gid']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['gid']['field'] = 'gid';
+  $handler->display->display_options['arguments']['gid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['gid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['gid']['default_argument_type'] = 'og_user_groups';
+  $handler->display->display_options['arguments']['gid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['gid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['gid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -517,14 +629,6 @@ Seite erstellen</a>';
   $handler->display->display_options['footer']['area']['content'] = '<a href ="/node/add/gruppe?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg form-submit" id="edit-submit"><i class="fa fa-users"></i> AG erstellen</a>';
   $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
   $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* No results behavior: Global: Unfiltered text */
-  $handler->display->display_options['empty']['area_text_custom']['id'] = 'area_text_custom';
-  $handler->display->display_options['empty']['area_text_custom']['table'] = 'views';
-  $handler->display->display_options['empty']['area_text_custom']['field'] = 'area_text_custom';
-  $handler->display->display_options['empty']['area_text_custom']['label'] = 'Protokoll erstellen';
-  $handler->display->display_options['empty']['area_text_custom']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area_text_custom']['content'] = '<a href ="/node/add/gruppe?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-pencil-square-o"></i>
-AG erstellen</a>';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
@@ -547,6 +651,16 @@ AG erstellen</a>';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: OG membership: Group ID */
+  $handler->display->display_options['arguments']['gid']['id'] = 'gid';
+  $handler->display->display_options['arguments']['gid']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['gid']['field'] = 'gid';
+  $handler->display->display_options['arguments']['gid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['gid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['gid']['default_argument_type'] = 'og_user_groups';
+  $handler->display->display_options['arguments']['gid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['gid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['gid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -587,18 +701,11 @@ AG erstellen</a>';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['label'] = 'Seite erstellen';
-  $handler->display->display_options['footer']['area']['content'] = '<a href ="/node/add/ag-seite?og_group_ref=!1?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-file-text-o"></i> Seite erstellen</a>';
+  $handler->display->display_options['footer']['area']['empty'] = TRUE;
+  $handler->display->display_options['footer']['area']['content'] = '<a href ="/node/add/ag-seite?og_group_ref=!1&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-file-text-o"></i> Seite erstellen</a>';
   $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
   $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* No results behavior: Global: Unfiltered text */
-  $handler->display->display_options['empty']['area_text_custom']['id'] = 'area_text_custom';
-  $handler->display->display_options['empty']['area_text_custom']['table'] = 'views';
-  $handler->display->display_options['empty']['area_text_custom']['field'] = 'area_text_custom';
-  $handler->display->display_options['empty']['area_text_custom']['label'] = 'Seite erstellen';
-  $handler->display->display_options['empty']['area_text_custom']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area_text_custom']['content'] = '<a href ="/node/add/page?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-file-text-o"></i>
-Seite erstellen</a>';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -674,7 +781,7 @@ Seite erstellen</a>';
     t('nächste Seite ›'),
     t('letzte Seite »'),
     t('Protokoll erstellen'),
-    t('<a href ="/node/add/protokoll?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-pencil-square-o"></i>
+    t('<a href ="/node/add/protokoll?og_group_ref=!1&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-pencil-square-o"></i>
 Protokoll erstellen</a>'),
     t('Group node from OG membership'),
     t('Wann'),
@@ -686,17 +793,20 @@ Protokoll erstellen</a>'),
     t('letzte News'),
     t('News'),
     t('News erstellen'),
-    t('<a href ="/node/add/news?og_group_ref=!1?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-newspaper-o"></i> News erstellen</a>'),
+    t('<a href ="/node/add/news?og_group_ref=!1&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-newspaper-o"></i> News erstellen</a>'),
     t('<p>Hier werden die letzten News der AG gezeigt, die automatisch in der rechten Seitenspalte der AG-Seite auftauchen. Zusätzlich können News an die globale Startseite und an Facebook geschickt werden, indem das entsprechende Flag aktiviert wird.</p><p>Probier es aus und erstelle deine erste News!</p>
-<a href ="/node/add/news?og_ref=[og_group_ref]&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-newspaper-o"></i>
+<a href ="/node/add/news?og_group_ref=!1&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-newspaper-o"></i>
 News erstellen</a>'),
+    t('Startseitenartikel'),
+    t('Facebook'),
     t('AG'),
+    t('Startseite'),
     t('View panes'),
     t('letzte Termine'),
     t('Termine'),
     t('Termin erstellen'),
-    t('<a href ="/node/add/termin?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-calendar"></i> Termin erstellen</a>'),
-    t('<a href ="/node/add/termin?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-calendar"></i>
+    t('<a href ="/node/add/event-calendar?og_group_ref=!1&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-calendar"></i> Termin erstellen</a>'),
+    t('<a href ="/node/add/event-calendar?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-calendar"></i>
 Termin erstellen</a>'),
     t('letzte Seiten'),
     t('Seiten'),
@@ -706,16 +816,14 @@ Termin erstellen</a>'),
 Seite erstellen</a>'),
     t('letzte Protokolle'),
     t('Protokolle'),
-    t('<a href ="/node/add/protokoll?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-pencil-square-o"></i> Protokoll erstellen</a>'),
+    t('<a href ="/node/add/protokoll?og_group_ref=!1&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-pencil-square-o"></i> Protokoll erstellen</a>'),
     t('letzte Gruppen'),
     t('Gruppen'),
     t('Arbeitsgruppe erstellen'),
     t('<a href ="/node/add/gruppe?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg form-submit" id="edit-submit"><i class="fa fa-users"></i> AG erstellen</a>'),
-    t('<a href ="/node/add/gruppe?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-pencil-square-o"></i>
-AG erstellen</a>'),
     t('letzte AG-Seiten'),
     t('AG-Seiten'),
-    t('<a href ="/node/add/ag-seite?og_group_ref=!1?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-file-text-o"></i> Seite erstellen</a>'),
+    t('<a href ="/node/add/ag-seite?og_group_ref=!1&destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-file-text-o"></i> Seite erstellen</a>'),
   );
   $export['ag_cockpit'] = $view;
 
@@ -913,7 +1021,77 @@ AG erstellen</a>'),
   $handler->display->display_options['cache']['output_lifespan'] = '60';
   $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Anwenden';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Zurücksetzen';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortieren nach';
+  $handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Aufsteigend';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Absteigend';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['exposed_form']['options']['bef'] = array(
+    'general' => array(
+      'allow_secondary' => 0,
+      'secondary_label' => 'Erweiterte Optionen',
+      'collapsible_label' => NULL,
+      'combine_rewrite' => NULL,
+      'reset_label' => NULL,
+    ),
+    'og_group_ref_target_id' => array(
+      'bef_format' => 'default',
+      'slider_options' => array(
+        'bef_slider_min' => '0',
+        'bef_slider_max' => '99999',
+        'bef_slider_step' => '1',
+        'bef_slider_animate' => '',
+        'bef_slider_orientation' => 'horizontal',
+        'secondary_label' => NULL,
+        'collapsible_label' => NULL,
+        'combine_rewrite' => NULL,
+        'reset_label' => NULL,
+      ),
+      'more_options' => array(
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+            'secondary_label' => NULL,
+            'collapsible_label' => NULL,
+            'combine_rewrite' => NULL,
+            'reset_label' => NULL,
+          ),
+          'secondary_label' => NULL,
+          'collapsible_label' => NULL,
+          'combine_rewrite' => NULL,
+          'reset_label' => NULL,
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+          'secondary_label' => NULL,
+          'collapsible_label' => NULL,
+          'combine_rewrite' => NULL,
+          'reset_label' => NULL,
+        ),
+        'secondary_label' => NULL,
+        'collapsible_label' => NULL,
+        'combine_rewrite' => NULL,
+        'reset_label' => NULL,
+      ),
+      'secondary_label' => NULL,
+      'collapsible_label' => NULL,
+      'combine_rewrite' => NULL,
+      'reset_label' => NULL,
+    ),
+    'secondary_label' => NULL,
+    'collapsible_label' => NULL,
+    'combine_rewrite' => NULL,
+    'reset_label' => NULL,
+  );
+  $handler->display->display_options['exposed_form']['options']['input_required'] = 0;
+  $handler->display->display_options['exposed_form']['options']['text_input_required'] = 'Wählen Sie eine beliebige Filter und klicken Sie auf Anwenden, um Ergebnisse zu sehen';
+  $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'filtered_html';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -983,7 +1161,7 @@ AG erstellen</a>'),
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
 
   /* Display: letzte News */
-  $handler = $view->new_display('panel_pane', 'letzte News', 'panel_pane_1');
+  $handler = $view->new_display('panel_pane', 'letzte News', 'letzte_news');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'News';
   $handler->display->display_options['defaults']['header'] = FALSE;
@@ -998,6 +1176,22 @@ AG erstellen</a>'),
   $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
   $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Flags: facebook_artikel */
+  $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel']['label'] = 'Facebook';
+  $handler->display->display_options['relationships']['flag_content_rel']['required'] = 0;
+  $handler->display->display_options['relationships']['flag_content_rel']['flag'] = 'facebook_artikel';
+  $handler->display->display_options['relationships']['flag_content_rel']['user_scope'] = 'any';
+  /* Relationship: Flags: frontpage_artikel */
+  $handler->display->display_options['relationships']['flag_content_rel_1']['id'] = 'flag_content_rel_1';
+  $handler->display->display_options['relationships']['flag_content_rel_1']['table'] = 'node';
+  $handler->display->display_options['relationships']['flag_content_rel_1']['field'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel_1']['label'] = 'Startseite';
+  $handler->display->display_options['relationships']['flag_content_rel_1']['required'] = 0;
+  $handler->display->display_options['relationships']['flag_content_rel_1']['flag'] = 'frontpage_artikel';
+  $handler->display->display_options['relationships']['flag_content_rel_1']['user_scope'] = 'any';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -1014,6 +1208,22 @@ AG erstellen</a>'),
     'link' => 0,
   );
   $handler->display->display_options['fields']['og_group_ref']['delta_offset'] = '0';
+  /* Field: Flags: Flagged */
+  $handler->display->display_options['fields']['flagged_1']['id'] = 'flagged_1';
+  $handler->display->display_options['fields']['flagged_1']['table'] = 'flagging';
+  $handler->display->display_options['fields']['flagged_1']['field'] = 'flagged';
+  $handler->display->display_options['fields']['flagged_1']['relationship'] = 'flag_content_rel_1';
+  $handler->display->display_options['fields']['flagged_1']['label'] = 'Startseite';
+  $handler->display->display_options['fields']['flagged_1']['type'] = 'unicode-yes-no';
+  $handler->display->display_options['fields']['flagged_1']['not'] = 0;
+  /* Field: Flags: Flagged */
+  $handler->display->display_options['fields']['flagged']['id'] = 'flagged';
+  $handler->display->display_options['fields']['flagged']['table'] = 'flagging';
+  $handler->display->display_options['fields']['flagged']['field'] = 'flagged';
+  $handler->display->display_options['fields']['flagged']['relationship'] = 'flag_content_rel';
+  $handler->display->display_options['fields']['flagged']['label'] = 'Facebook';
+  $handler->display->display_options['fields']['flagged']['type'] = 'unicode-yes-no';
+  $handler->display->display_options['fields']['flagged']['not'] = 0;
   /* Field: Content: Delete link */
   $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
@@ -1055,9 +1265,10 @@ AG erstellen</a>'),
   );
 
   /* Display: letzte Termine */
-  $handler = $view->new_display('panel_pane', 'letzte Termine', 'panel_pane_2');
+  $handler = $view->new_display('panel_pane', 'letzte Termine', 'letzte_termine');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Termine';
+  $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
   /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
@@ -1075,14 +1286,20 @@ AG erstellen</a>'),
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Field: AG */
-  $handler->display->display_options['fields']['og_group_ref']['id'] = 'og_group_ref';
-  $handler->display->display_options['fields']['og_group_ref']['table'] = 'og_membership';
-  $handler->display->display_options['fields']['og_group_ref']['field'] = 'og_group_ref';
-  $handler->display->display_options['fields']['og_group_ref']['settings'] = array(
-    'link' => 0,
+  /* Field: Content: Wann */
+  $handler->display->display_options['fields']['field_termin_wann']['id'] = 'field_termin_wann';
+  $handler->display->display_options['fields']['field_termin_wann']['table'] = 'field_data_field_termin_wann';
+  $handler->display->display_options['fields']['field_termin_wann']['field'] = 'field_termin_wann';
+  $handler->display->display_options['fields']['field_termin_wann']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'value',
+    'multiple_number' => '1',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+    'show_repeat_rule' => 'show',
   );
-  $handler->display->display_options['fields']['og_group_ref']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_termin_wann']['delta_offset'] = '0';
   /* Field: Content: Delete link */
   $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
@@ -1111,6 +1328,7 @@ AG erstellen</a>'),
   $handler->display->display_options['filters']['type']['value'] = array(
     'event_calendar' => 'event_calendar',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['argument_input'] = array(
     'gid' => array(
       'type' => 'none',
@@ -1123,7 +1341,7 @@ AG erstellen</a>'),
   );
 
   /* Display: letzte Seiten */
-  $handler = $view->new_display('panel_pane', 'letzte Seiten', 'panel_pane_3');
+  $handler = $view->new_display('panel_pane', 'letzte Seiten', 'letzte_ag_seiten');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Seiten';
   $handler->display->display_options['defaults']['footer'] = FALSE;
@@ -1187,7 +1405,7 @@ AG erstellen</a>'),
   );
 
   /* Display: letzte Protokolle */
-  $handler = $view->new_display('panel_pane', 'letzte Protokolle', 'panel_pane_4');
+  $handler = $view->new_display('panel_pane', 'letzte Protokolle', 'letzte_protokolle');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Protokolle';
   $handler->display->display_options['defaults']['footer'] = FALSE;
@@ -1259,7 +1477,7 @@ AG erstellen</a>'),
   );
 
   /* Display: letzte Gruppen */
-  $handler = $view->new_display('panel_pane', 'letzte Gruppen', 'panel_pane_5');
+  $handler = $view->new_display('panel_pane', 'letzte Gruppen', 'letzte_gruppen');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Gruppen';
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -1294,11 +1512,13 @@ AG erstellen</a>'),
     t('Master'),
     t('Schaltzentrale'),
     t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
+    t('Anwenden'),
+    t('Zurücksetzen'),
+    t('Sortieren nach'),
+    t('Aufsteigend'),
+    t('Absteigend'),
+    t('Erweiterte Optionen'),
+    t('Wählen Sie eine beliebige Filter und klicken Sie auf Anwenden, um Ergebnisse zu sehen'),
     t('Elemente pro Seite'),
     t('- Alle -'),
     t('Offset'),
@@ -1311,12 +1531,15 @@ AG erstellen</a>'),
     t('News'),
     t('News erstellen'),
     t('<a href ="/node/add/news?destination=admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-newspaper-o"></i> News erstellen</a>'),
+    t('Facebook'),
+    t('Startseite'),
     t('AG'),
     t('View panes'),
     t('letzte Termine'),
     t('Termine'),
     t('Termin erstellen'),
     t('<a href ="/node/add/event-calendar?destination=/admin/cockpit" class="btn-flat btn btn-primary btn-lg"><i class="fa fa-calendar"></i>Termin erstellen</a>'),
+    t('Wann'),
     t('letzte Seiten'),
     t('Seiten'),
     t('Seite erstellen'),

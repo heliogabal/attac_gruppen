@@ -294,7 +294,10 @@ function attac_gruppen_default_page_manager_handlers() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
@@ -454,10 +457,10 @@ function attac_gruppen_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-172df7bf-78f7-4c82-b57c-45ab1535e5f7';
+    $pane->pid = 'new-7b8bca50-1557-474f-9ee0-e0b3807bd1ee';
     $pane->panel = 'left_above';
     $pane->type = 'views_panes';
-    $pane->subtype = 'cockpit-panel_pane_1';
+    $pane->subtype = 'cockpit-letzte_news';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -469,14 +472,14 @@ function attac_gruppen_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '172df7bf-78f7-4c82-b57c-45ab1535e5f7';
-    $display->content['new-172df7bf-78f7-4c82-b57c-45ab1535e5f7'] = $pane;
-    $display->panels['left_above'][0] = 'new-172df7bf-78f7-4c82-b57c-45ab1535e5f7';
+    $pane->uuid = '7b8bca50-1557-474f-9ee0-e0b3807bd1ee';
+    $display->content['new-7b8bca50-1557-474f-9ee0-e0b3807bd1ee'] = $pane;
+    $display->panels['left_above'][0] = 'new-7b8bca50-1557-474f-9ee0-e0b3807bd1ee';
     $pane = new stdClass();
-    $pane->pid = 'new-4f3e6c95-9407-411e-bda8-abe13e2b6b98';
+    $pane->pid = 'new-a4356b22-5c4c-4bb2-acc7-b505845eccb4';
     $pane->panel = 'left_below';
     $pane->type = 'views_panes';
-    $pane->subtype = 'cockpit-panel_pane_3';
+    $pane->subtype = 'cockpit-letzte_ag_seiten';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -488,9 +491,9 @@ function attac_gruppen_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '4f3e6c95-9407-411e-bda8-abe13e2b6b98';
-    $display->content['new-4f3e6c95-9407-411e-bda8-abe13e2b6b98'] = $pane;
-    $display->panels['left_below'][0] = 'new-4f3e6c95-9407-411e-bda8-abe13e2b6b98';
+    $pane->uuid = 'a4356b22-5c4c-4bb2-acc7-b505845eccb4';
+    $display->content['new-a4356b22-5c4c-4bb2-acc7-b505845eccb4'] = $pane;
+    $display->panels['left_below'][0] = 'new-a4356b22-5c4c-4bb2-acc7-b505845eccb4';
     $pane = new stdClass();
     $pane->pid = 'new-9e27c7df-71a0-4ecf-8b24-e915ee469a1a';
     $pane->panel = 'left_below';
@@ -511,10 +514,10 @@ function attac_gruppen_default_page_manager_pages() {
     $display->content['new-9e27c7df-71a0-4ecf-8b24-e915ee469a1a'] = $pane;
     $display->panels['left_below'][1] = 'new-9e27c7df-71a0-4ecf-8b24-e915ee469a1a';
     $pane = new stdClass();
-    $pane->pid = 'new-89d3dc4c-3eac-4a66-8483-07761143fb08';
+    $pane->pid = 'new-851c5b5b-f8b3-4d57-8490-e9b94c3102cf';
     $pane->panel = 'right_above';
     $pane->type = 'views_panes';
-    $pane->subtype = 'cockpit-panel_pane_2';
+    $pane->subtype = 'cockpit-letzte_termine';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -526,14 +529,14 @@ function attac_gruppen_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '89d3dc4c-3eac-4a66-8483-07761143fb08';
-    $display->content['new-89d3dc4c-3eac-4a66-8483-07761143fb08'] = $pane;
-    $display->panels['right_above'][0] = 'new-89d3dc4c-3eac-4a66-8483-07761143fb08';
+    $pane->uuid = '851c5b5b-f8b3-4d57-8490-e9b94c3102cf';
+    $display->content['new-851c5b5b-f8b3-4d57-8490-e9b94c3102cf'] = $pane;
+    $display->panels['right_above'][0] = 'new-851c5b5b-f8b3-4d57-8490-e9b94c3102cf';
     $pane = new stdClass();
-    $pane->pid = 'new-b6629d54-ed15-4229-97d7-a42a224ba738';
+    $pane->pid = 'new-94ec8b03-168c-4f90-bd4b-9ffb49374a43';
     $pane->panel = 'right_below';
     $pane->type = 'views_panes';
-    $pane->subtype = 'cockpit-panel_pane_4';
+    $pane->subtype = 'cockpit-letzte_protokolle';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -545,9 +548,9 @@ function attac_gruppen_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'b6629d54-ed15-4229-97d7-a42a224ba738';
-    $display->content['new-b6629d54-ed15-4229-97d7-a42a224ba738'] = $pane;
-    $display->panels['right_below'][0] = 'new-b6629d54-ed15-4229-97d7-a42a224ba738';
+    $pane->uuid = '94ec8b03-168c-4f90-bd4b-9ffb49374a43';
+    $display->content['new-94ec8b03-168c-4f90-bd4b-9ffb49374a43'] = $pane;
+    $display->panels['right_below'][0] = 'new-94ec8b03-168c-4f90-bd4b-9ffb49374a43';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -568,7 +571,16 @@ function attac_gruppen_default_page_manager_pages() {
     'body_classes_to_add' => 'cockpit',
     'css_id' => '',
     'css' => '',
-    'contexts' => array(),
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'Benutzer',
+        'keyword' => 'user',
+        'name' => 'user',
+        'type' => 'current',
+        'uid' => '',
+        'id' => 1,
+      ),
+    ),
     'relationships' => array(),
     'access' => array(
       'logic' => 'and',

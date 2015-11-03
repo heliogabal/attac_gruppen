@@ -61,7 +61,7 @@ function attac_gruppen_ckeditor_profile_defaults() {
         'html_entities' => 'f',
         'scayt_autoStartup' => 't',
         'theme_config_js' => 'f',
-        'js_conf' => '',
+        'js_conf' => 'config.language = \'de\';',
         'loadPlugins' => array(
           'counter' => array(
             'name' => 'counter',
@@ -70,17 +70,7 @@ function attac_gruppen_ckeditor_profile_defaults() {
             'buttons' => FALSE,
             'default' => 'f',
           ),
-          'dndck4' => array(
-            'name' => 'dndck4',
-            'desc' => 'Scald Drag and Drop integration - CKEditor 4 widgets',
-            'path' => '%base_path%sites/all/modules/contrib/scald/modules/library/dnd/plugins/dndck4/',
-            'buttons' => array(
-              'ScaldAtom' => array(
-                'label' => 'ScaldAtom',
-                'icon' => 'icons/atom.png',
-              ),
-            ),
-          ),
+          'dndck4' => NULL,
           'drupalbreaks' => array(
             'name' => 'drupalbreaks',
             'desc' => 'Plugin for inserting Drupal teaser and page breaks.',
@@ -142,7 +132,7 @@ function attac_gruppen_ckeditor_profile_defaults() {
     [\'ScaldAtom\',\'linkit\',\'Unlink\',\'Anchor\'],
     [\'DrupalBreak\'],
     \'/\',
-    [\'Format\',\'Font\',\'FontSize\'],
+    [\'Format\',\'Font\',\'FontSize\',\'Styles\'],
     [\'TextColor\',\'BGColor\'],
     [\'Maximize\',\'ShowBlocks\']
 ]',
@@ -184,7 +174,7 @@ function attac_gruppen_ckeditor_profile_defaults() {
         'html_entities' => 'f',
         'scayt_autoStartup' => 't',
         'theme_config_js' => 'f',
-        'js_conf' => '',
+        'js_conf' => 'config.language = \'de\';',
         'loadPlugins' => array(
           'counter' => array(
             'name' => 'counter',
@@ -193,17 +183,7 @@ function attac_gruppen_ckeditor_profile_defaults() {
             'buttons' => FALSE,
             'default' => 'f',
           ),
-          'dndck4' => array(
-            'name' => 'dndck4',
-            'desc' => 'Scald Drag and Drop integration - CKEditor 4 widgets',
-            'path' => '%base_path%sites/all/modules/contrib/scald/modules/library/dnd/plugins/dndck4/',
-            'buttons' => array(
-              'ScaldAtom' => array(
-                'label' => 'ScaldAtom',
-                'icon' => 'icons/atom.png',
-              ),
-            ),
-          ),
+          'dndck4' => NULL,
           'drupalbreaks' => array(
             'name' => 'drupalbreaks',
             'desc' => 'Plugin for inserting Drupal teaser and page breaks.',

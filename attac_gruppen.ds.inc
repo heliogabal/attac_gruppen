@@ -94,28 +94,23 @@ function attac_gruppen_ds_layout_settings_info() {
   $ds_layout->entity_type = 'node';
   $ds_layout->bundle = 'ag_seite';
   $ds_layout->view_mode = 'default';
-  $ds_layout->layout = 'panels-two_66_33';
+  $ds_layout->layout = 'panels-one';
   $ds_layout->settings = array(
     'regions' => array(
-      'two_66_33_first' => array(
+      'one_main' => array(
         0 => 'title',
         1 => 'body',
-      ),
-      'two_66_33_second' => array(
         2 => 'field_bilder',
       ),
     ),
     'fields' => array(
-      'title' => 'two_66_33_first',
-      'body' => 'two_66_33_first',
-      'field_bilder' => 'two_66_33_second',
+      'title' => 'one_main',
+      'body' => 'one_main',
+      'field_bilder' => 'one_main',
     ),
     'classes' => array(),
     'wrappers' => array(
-      'two_66_33_top' => 'div',
-      'two_66_33_first' => 'div',
-      'two_66_33_second' => 'div',
-      'two_66_33_bottom' => 'div',
+      'one_main' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',

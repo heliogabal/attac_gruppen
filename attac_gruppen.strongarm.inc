@@ -91,6 +91,9 @@ function attac_gruppen_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'adresse' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -573,6 +576,13 @@ function attac_gruppen_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_ag_seite_pattern';
+  $strongarm->value = 'ags/[node:og-group-ref]/[node:title]';
+  $export['pathauto_node_ag_seite_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_artikel_pattern';
   $strongarm->value = 'ags/[node:og-group-ref]/[node:title]';
   $export['pathauto_node_artikel_pattern'] = $strongarm;
@@ -581,7 +591,7 @@ function attac_gruppen_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_gruppe_pattern';
-  $strongarm->value = 'ags/[node:title]';
+  $strongarm->value = 'ags/[node:og-group-ref]';
   $export['pathauto_node_gruppe_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -597,6 +607,13 @@ function attac_gruppen_strongarm() {
   $strongarm->name = 'pathauto_taxonomy_term_arbeitsgruppen_pattern';
   $strongarm->value = '';
   $export['pathauto_taxonomy_term_arbeitsgruppen_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_themen_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_themen_pattern'] = $strongarm;
 
   return $export;
 }

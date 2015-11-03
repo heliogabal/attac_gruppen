@@ -18,20 +18,20 @@ function attac_gruppen_filter_default_formats() {
     'status' => 1,
     'weight' => -10,
     'filters' => array(
-      'invisimail_encode_js_entities' => array(
-        'weight' => -43,
+      'invisimail_encode_html_entities' => array(
+        'weight' => -40,
         'status' => 1,
         'settings' => array(
-          'encoder' => 'js_entities',
+          'encoder' => 'html_entities',
           'chunk' => 1,
-          'link' => 0,
+          'link' => 1,
         ),
       ),
       'filter_html' => array(
         'weight' => -39,
         'status' => 1,
         'settings' => array(
-          'allowed_html' => '<a> <em> <i> <strong> <b> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <img> <p> <br> <h1> <h2> <h3> <h4> <table> <thead> <tbody> <th> <tr> <td> <caption><span><div>',
+          'allowed_html' => '<a> <em> <i> <strong> <b> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <img> <p> <br> <h1> <h2> <h3> <h4> <table> <thead> <tbody> <th> <tr> <td> <caption><span><div><hr>',
           'filter_html_help' => 1,
           'filter_html_nofollow' => 0,
         ),
@@ -56,11 +56,6 @@ function attac_gruppen_filter_default_formats() {
         'status' => 1,
         'settings' => array(),
       ),
-      'filter_qtip' => array(
-        'weight' => -34,
-        'status' => 1,
-        'settings' => array(),
-      ),
     ),
   );
 
@@ -77,11 +72,11 @@ function attac_gruppen_filter_default_formats() {
         'status' => 1,
         'settings' => array(),
       ),
-      'invisimail_encode_js_entities' => array(
-        'weight' => -40,
+      'invisimail_encode_html_entities' => array(
+        'weight' => -41,
         'status' => 1,
         'settings' => array(
-          'encoder' => 'js_entities',
+          'encoder' => 'html_entities',
           'chunk' => 1,
           'link' => 1,
         ),
@@ -103,11 +98,6 @@ function attac_gruppen_filter_default_formats() {
       ),
       'filter_autop' => array(
         'weight' => -36,
-        'status' => 1,
-        'settings' => array(),
-      ),
-      'filter_qtip' => array(
-        'weight' => -35,
         'status' => 1,
         'settings' => array(),
       ),
